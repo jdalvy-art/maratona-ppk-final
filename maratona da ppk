@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maratona da PPK | Gino-Canesten</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://www.gino-canesten.com.br/themes/custom/gino/logo.svg" alt="Logo Gino-Canesten" class="logo" />
+    <h1>Maratona da PPK</h1>
+    <p class="subtitle">Uma jornada de cuidado íntimo com brindes e descontos exclusivos</p>
+  </header>
+
+  <section class="quiz-section">
+    <h2>💡 Participe do Quizz</h2>
+    <p>Responda perguntas sobre saúde íntima feminina e desbloqueie benefícios incríveis!</p>
+    <button id="startQuiz">Quero cuidar da minha PPK</button>
+  </section>
+
+  <section class="benefits">
+    <h2>🎁 Benefícios</h2>
+    <ul>
+      <li><strong>20% OFF</strong> em produtos Gino-Canesten</li>
+      <li><strong>Brindes exclusivos</strong> como nécessaires e amostras</li>
+      <li><strong>E-book gratuito</strong> sobre saúde íntima</li>
+    </ul>
+  </section>
+
+  <section class="form-section" id="formSection" style="display: none;">
+    <h2>📬 Receba seus benefícios</h2>
+    <form id="userForm">
+      <input type="text" placeholder="Seu nome" required />
+      <input type="email" placeholder="Seu e-mail" required />
+      <input type="text" placeholder="Seu endereço" required />
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Campanha oficial Gino-Canesten | Bayer Brasil</p>
+    <p>Seus dados estão protegidos e serão usados apenas para esta campanha.</p>
+  </footer>
+</body>
+</html>
