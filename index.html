@@ -1,60 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maratona da PPK | Gino-Canesten</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maratona da PPK</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h2 {
+      color: #d63384;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #d63384;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c2186b;
+    }
+
+    .question {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="https://www.gino-canesten.com.br/themes/custom/gino/logo.svg" alt="Logo Gino-Canesten" class="logo" />
-    <h1>Maratona da PPK</h1>
-    <p class="subtitle">Uma jornada de cuidado íntimo com brindes e descontos exclusivos</p>
-  </header>
 
-  <section class="quiz-section">
-    <h2>💡 Participe do Quizz</h2>
-    <p>Responda perguntas sobre saúde íntima feminina e desbloqueie benefícios incríveis!</p>
-    <button id="startQuiz">Maratona da PPK</button>
+  <!-- Botão inicial -->
+  <button id="startQuiz">Maratona da PPK 💖</button>
+
+  <!-- Seção do formulário -->
+  <section class="form-section" id="formSection" style="display: none;">
+    <h2>💬 Fale com a gente</h2>
+    <form id="userForm">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Mensagem:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
   </section>
 
-  <section class="benefits">
-    <h2>🎁 Benefícios</h2>
-    <ul>
-      <li><strong>20% OFF</strong> em produtos Gino-Canesten</li>
-      <li><strong>Brindes exclusivos</strong> como nécessaires e amostras</li>
-      <li><strong>E-book gratuito</strong> sobre saúde íntima</li>
-    </ul>
-  </section>
-
-  <!-- Seção do formulário principal -->
-<section class="form-section" id="formSection">
-  <h2>💬 Fale com a gente</h2>
-  <form id="contactForm">
-    <label for="name">Nome:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Mensagem:</label>
-    <textarea id="message" name="message" required></textarea>
-
-    <button type="submit">Enviar</button>
-  </form>
-
-  <!-- Botão para abrir o quiz -->
-  <button onclick="openQuiz()">Fazer Quiz sobre Saúde Íntima 🧠</button>
-</section>
-
-<!-- Pop-up do quiz -->
-<div class="overlay" id="quizOverlay" style="display: none;">
-  <div class="quiz-popup">
-    <button class="close-btn" onclick="closeQuiz()">×</button>
+  <!-- Seção do quiz -->
+  <section class="quiz" id="quizSection" style="display: none;">
     <h2>🧠 Quiz sobre Saúde Íntima</h2>
-    <form id="quizForm">
+    <form id="quizForm" onsubmit="event.preventDefault(); showResult();">
       <div class="question">
         <label>1. Você sente desconforto íntimo com frequência?</label><br>
         <input type="radio" name="q1" value="sim"> Sim<br>
@@ -67,8 +97,38 @@
         <input type="radio" name="q2" value="nao"> Não
       </div>
 
-      <button type="submit">Enviar Respostas</button>
+      <button type="submit">Finalizar Quiz</button>
     </form>
-  </div>
-</div>
+  </section>
 
+  <!-- Seção de resultado -->
+  <section class="result" id="resultSection" style="display: none;">
+    <h2>🎉 Obrigada por participar!</h2>
+    <p>Suas respostas foram enviadas com sucesso. Em breve entraremos em contato com mais informações sobre saúde íntima.</p>
+  </section>
+
+  <script>
+    // Quando o usuário clica no botão "Maratona da PPK"
+    document.getElementById("startQuiz").addEventListener("click", () => {
+      document.getElementById("formSection").style.display = "block";
+      window.scrollTo({ top: document.getElementById("formSection").offsetTop, behavior: "smooth" });
+    });
+
+    // Quando o usuário envia o formulário
+    document.getElementById("userForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("formSection").style.display = "none";
+      document.getElementById("quizSection").style.display = "block";
+      window.scrollTo({ top: document.getElementById("quizSection").offsetTop, behavior: "smooth" });
+    });
+
+    // Quando o usuário finaliza o quiz
+    function showResult() {
+      document.getElementById("quizSection").style.display = "none";
+      document.getElementById("resultSection").style.display = "block";
+      window.scrollTo({ top: document.getElementById("resultSection").offsetTop, behavior: "smooth" });
+    }
+  </script>
+
+</body>
+</html>
