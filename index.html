@@ -29,7 +29,53 @@
     </ul>
   </section>
 
-  <section class="form-section" id="formSection" style="display: none;">
+  <section class="form-section" id="formSection" <section class="quiz" id="quizSection" style="display: none;">
+  <h2>🧠 Quiz sobre Saúde Íntima</h2>
+  <form id="quizForm">
+    <div class="question">
+      <p>1. Qual a função da microbiota vaginal?</p>
+      <label><input type="radio" name="q1"> Proteger contra infecções</label><br>
+      <label><input type="radio" name="q1"> Produzir hormônios</label><br>
+      <label><input type="radio" name="q1"> Regular o ciclo menstrual</label>
+    </div>
+
+    <div class="question">
+      <p>2. O que pode desequilibrar a microbiota vaginal?</p>
+      <label><input type="radio" name="q2"> Uso excessivo de sabonetes íntimos</label><br>
+      <label><input type="radio" name="q2"> Alimentação saudável</label><br>
+      <label><input type="radio" name="q2"> Prática de exercícios físicos</label>
+    </div>
+
+    <div class="question">
+      <p>3. Qual é um sinal comum de desequilíbrio vaginal?</p>
+      <label><input type="radio" name="q3"> Corrimento com odor forte</label><br>
+      <label><input type="radio" name="q3"> Cólica menstrual</label><br>
+      <label><input type="radio" name="q3"> Dor nas costas</label>
+    </div>
+
+    <div class="question">
+      <p>4. O que é recomendado para manter a saúde íntima?</p>
+      <label><input type="radio" name="q4"> Usar roupas íntimas de algodão</label><br>
+      <label><input type="radio" name="q4"> Usar perfume íntimo diariamente</label><br>
+      <label><input type="radio" name="q4"> Lavar com água sanitária</label>
+    </div>
+
+    <div class="question">
+      <p>5. Qual profissional deve ser consultado regularmente?</p>
+      <label><input type="radio" name="q5"> Ginecologista</label><br>
+      <label><input type="radio" name="q5"> Dermatologista</label><br>
+      <label><input type="radio" name="q5"> Cardiologista</label>
+    </div>
+
+    <button type="button" onclick="showResult()">Finalizar Quiz</button>
+  </form>
+</section>
+
+<section id="resultSection" style="display: none;">
+  <h2>🎉 Parabéns, você já sabe como se cuidar!</h2>
+  <p><a href="https://seulink.com/cupom" target="_blank">Clique aqui para pegar seu cupom</a></p>
+</section>
+style="display: none;">
     <h2>📬 Receba seus benefícios</h2>
     <form id="userForm">
       <input type="text" placeholder="Seu nome" required />
