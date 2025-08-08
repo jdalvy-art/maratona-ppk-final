@@ -17,7 +17,7 @@
   <section class="quiz-section">
     <h2>💡 Participe do Quizz</h2>
     <p>Responda perguntas sobre saúde íntima feminina e desbloqueie benefícios incríveis!</p>
-    <button id="startQuiz">Quero cuidar da minha PPK</button>
+    <button id="startQuiz">Maratona da PPK</button>
   </section>
 
   <section class="benefits">
@@ -29,65 +29,46 @@
     </ul>
   </section>
 
-  <section class="form-section" id="formSection" <section class="quiz" id="quizSection" style="display: none;">
-  <h2>🧠 Quiz sobre Saúde Íntima</h2>
-  <form id="quizForm">
-    <div class="question">
-      <p>1. Qual a função da microbiota vaginal?</p>
-      <label><input type="radio" name="q1"> Proteger contra infecções</label><br>
-      <label><input type="radio" name="q1"> Produzir hormônios</label><br>
-      <label><input type="radio" name="q1"> Regular o ciclo menstrual</label>
-    </div>
+  <!-- Seção do formulário principal -->
+<section class="form-section" id="formSection">
+  <h2>💬 Fale com a gente</h2>
+  <form id="contactForm">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required>
 
-    <div class="question">
-      <p>2. O que pode desequilibrar a microbiota vaginal?</p>
-      <label><input type="radio" name="q2"> Uso excessivo de sabonetes íntimos</label><br>
-      <label><input type="radio" name="q2"> Alimentação saudável</label><br>
-      <label><input type="radio" name="q2"> Prática de exercícios físicos</label>
-    </div>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required>
 
-    <div class="question">
-      <p>3. Qual é um sinal comum de desequilíbrio vaginal?</p>
-      <label><input type="radio" name="q3"> Corrimento com odor forte</label><br>
-      <label><input type="radio" name="q3"> Cólica menstrual</label><br>
-      <label><input type="radio" name="q3"> Dor nas costas</label>
-    </div>
+    <label for="message">Mensagem:</label>
+    <textarea id="message" name="message" required></textarea>
 
-    <div class="question">
-      <p>4. O que é recomendado para manter a saúde íntima?</p>
-      <label><input type="radio" name="q4"> Usar roupas íntimas de algodão</label><br>
-      <label><input type="radio" name="q4"> Usar perfume íntimo diariamente</label><br>
-      <label><input type="radio" name="q4"> Lavar com água sanitária</label>
-    </div>
-
-    <div class="question">
-      <p>5. Qual profissional deve ser consultado regularmente?</p>
-      <label><input type="radio" name="q5"> Ginecologista</label><br>
-      <label><input type="radio" name="q5"> Dermatologista</label><br>
-      <label><input type="radio" name="q5"> Cardiologista</label>
-    </div>
-
-    <button type="button" onclick="showResult()">Finalizar Quiz</button>
+    <button type="submit">Enviar</button>
   </form>
+
+  <!-- Botão para abrir o quiz -->
+  <button onclick="openQuiz()">Fazer Quiz sobre Saúde Íntima 🧠</button>
 </section>
 
-<section id="resultSection" style="display: none;">
-  <h2>🎉 Parabéns, você já sabe como se cuidar!</h2>
-  <p><a href="https://seulink.com/cupom" target="_blank">Clique aqui para pegar seu cupom</a></p>
-</section>
-style="display: none;">
-    <h2>📬 Receba seus benefícios</h2>
-    <form id="userForm">
-      <input type="text" placeholder="Seu nome" required />
-      <input type="email" placeholder="Seu e-mail" required />
-      <input type="text" placeholder="Seu endereço" required />
-      <button type="submit">Enviar</button>
+<!-- Pop-up do quiz -->
+<div class="overlay" id="quizOverlay" style="display: none;">
+  <div class="quiz-popup">
+    <button class="close-btn" onclick="closeQuiz()">×</button>
+    <h2>🧠 Quiz sobre Saúde Íntima</h2>
+    <form id="quizForm">
+      <div class="question">
+        <label>1. Você sente desconforto íntimo com frequência?</label><br>
+        <input type="radio" name="q1" value="sim"> Sim<br>
+        <input type="radio" name="q1" value="nao"> Não
+      </div>
+
+      <div class="question">
+        <label>2. Você já conversou com um profissional sobre saúde íntima?</label><br>
+        <input type="radio" name="q2" value="sim"> Sim<br>
+        <input type="radio" name="q2" value="nao"> Não
+      </div>
+
+      <button type="submit">Enviar Respostas</button>
     </form>
-  </section>
+  </div>
+</div>
 
-  <footer>
-    <p>Campanha oficial Gino-Canesten | Bayer Brasil</p>
-    <p>Seus dados estão protegidos e serão usados apenas para esta campanha.</p>
-  </footer>
-</body>
-</html>
