@@ -3,55 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maratona da PPK</title>
+  <title>Maratona da PPK - Gino-Canesten</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
       margin: 0;
       padding: 20px;
-      background-color: #f9f9f9;
+      color: #5a004f;
     }
 
-    h2 {
+    h1, h2 {
       color: #d63384;
     }
 
-    section {
-      margin-bottom: 40px;
+    .intro {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .intro img {
+      max-width: 100%;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+
+    button {
+      background-color: #d63384;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    button:hover {
+      background-color: #b3006b;
+    }
+
+    .form-section {
+      display: none;
+      max-width: 600px;
+      margin: 40px auto;
       background: #fff;
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     label {
       display: block;
-      margin-top: 10px;
+      margin-top: 15px;
       font-weight: bold;
     }
 
-    input[type="text"],
-    input[type="email"],
-    textarea {
+    input, textarea {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       margin-top: 5px;
       border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #d63384;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #c2186b;
+      border-radius: 6px;
     }
 
     .question {
@@ -61,11 +75,22 @@
 </head>
 <body>
 
-  <!-- Botão inicial -->
-  <button id="startQuiz">Maratona da PPK 💖</button>
+  <!-- Introdução da campanha -->
+  <div class="intro">
+    <h1>🎉 Participe da Maratona da PPK!</h1>
+    <p>
+      Concorra a brindes exclusivos, cupons de desconto maneiríssimos para gastar com nossos parceiros como Amazon e Mercado Livre, em produtos Gino-Canesten.
+    </p>
+    <p>
+      Ao participar, você entra numa jornada divertida e educativa sobre saúde íntima — e ainda pode ganhar essa ecobag linda:
+    </p>
+    <img src="ecobag.png" alt="Ecobag Gino-Canesten">
 
-  <!-- Seção do formulário -->
-  <section class="form-section" id="formSection" style="display: none;">
+    <button id="startQuiz">Quero Participar 💖</button>
+  </div>
+
+  <!-- Formulário embutido -->
+  <section class="form-section" id="formSection">
     <h2>💬 Fale com a gente</h2>
     <form id="userForm">
       <label for="name">Nome:</label>
@@ -81,8 +106,8 @@
     </form>
   </section>
 
-  <!-- Seção do quiz -->
-  <section class="quiz" id="quizSection" style="display: none;">
+  <!-- Quiz embutido -->
+  <section class="form-section" id="quizSection" style="display: none;">
     <h2>🧠 Quiz sobre Saúde Íntima</h2>
     <form id="quizForm" onsubmit="event.preventDefault(); showResult();">
       <div class="question">
@@ -101,20 +126,20 @@
     </form>
   </section>
 
-  <!-- Seção de resultado -->
-  <section class="result" id="resultSection" style="display: none;">
+  <!-- Resultado final -->
+  <section class="form-section" id="resultSection" style="display: none;">
     <h2>🎉 Obrigada por participar!</h2>
-    <p>Suas respostas foram enviadas com sucesso. Em breve entraremos em contato com mais informações sobre saúde íntima.</p>
+    <p>Suas respostas foram enviadas com sucesso. Em breve entraremos em contato com mais informações sobre saúde íntima e seus brindes da Maratona da PPK!</p>
   </section>
 
   <script>
-    // Quando o usuário clica no botão "Maratona da PPK"
+    // Mostrar formulário ao clicar no botão
     document.getElementById("startQuiz").addEventListener("click", () => {
       document.getElementById("formSection").style.display = "block";
       window.scrollTo({ top: document.getElementById("formSection").offsetTop, behavior: "smooth" });
     });
 
-    // Quando o usuário envia o formulário
+    // Mostrar quiz ao enviar formulário
     document.getElementById("userForm").addEventListener("submit", function (e) {
       e.preventDefault();
       document.getElementById("formSection").style.display = "none";
@@ -122,7 +147,7 @@
       window.scrollTo({ top: document.getElementById("quizSection").offsetTop, behavior: "smooth" });
     });
 
-    // Quando o usuário finaliza o quiz
+    // Mostrar resultado ao finalizar quiz
     function showResult() {
       document.getElementById("quizSection").style.display = "none";
       document.getElementById("resultSection").style.display = "block";
